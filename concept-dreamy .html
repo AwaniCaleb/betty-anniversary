@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To My Beautiful Betty 💕</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .handwriting {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* Dreamy Background */
+        .dreamy-bg {
+            background: linear-gradient(180deg, #ffd1dc 0%, #ffb3d9 25%, #d4a5ff 50%, #b19cd9 75%, #a8d8ea 100%);
+            position: relative;
+        }
+
+        .dark .dreamy-bg {
+            background: linear-gradient(180deg, #1a0520 0%, #2d1b3d 25%, #1e3a5f 50%, #0f2940 75%, #0a1929 100%);
+        }
+
+        /* Floating Elements */
+        .float-element {
+            position: absolute;
+            animation: gentleFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
+        }
+
+        /* Sparkle Effect */
+        .sparkle {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, #fff 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: sparkleAnim 1.5s ease-out forwards;
+            z-index: 9999;
+        }
+
+        @keyframes sparkleAnim {
+            0% { opacity: 0; transform: scale(0) rotate(0deg); }
+            50% { opacity: 1; }
+            100% { opacity: 0; transform: scale(1.5) rotate(180deg); }
+        }
+
+        /* Cute Card Flip */
+        .flip-card {
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 1.5rem;
+        }
+
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+
+        /* Heart Trail Cursor */
+        .heart-trail {
+            position: fixed;
+            font-size: 20px;
+            pointer-events: none;
+            z-index: 9999;
+            animation: heartTrailAnim 1s ease-out forwards;
+        }
+
+        @keyframes heartTrailAnim {
+            0% { opacity: 1; transform: translateY(0) scale(1); }
+            100% { opacity: 0; transform: translateY(-50px) scale(0.5); }
+        }
+
+        /* Bounce Animation */
+        .bounce-in {
+            animation: bounceIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.3); }
+            50% { opacity: 1; transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); }
+        }
+
+        /* Wiggle on Hover */
+        .wiggle:hover {
+            animation: wiggle 0.5s ease-in-out;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+
+        /* Pulse Glow */
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 182, 193, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(255, 182, 193, 1); }
+        }
+
+        /* Rainbow Text */
+        .rainbow-text {
+            background: linear-gradient(90deg, #ff0080, #ff8c00, #40e0d0, #ff0080);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow 3s linear infinite;
+        }
+
+        @keyframes rainbow {
+            to { background-position: 200% center; }
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            pointer-events: none;
+            animation: confettiFall 3s ease-out forwards;
+        }
+
+        @keyframes confettiFall {
+            to {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Morphing Shape */
+        .morphing-shape {
+            animation: morph 8s ease-in-out infinite;
+        }
+
+        @keyframes morph {
+            0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+        }
+
+        /* Shake Animation */
+        .shake:hover {
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        /* Love Message Reveal */
+        .love-message {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .love-message::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .love-message:hover::before {
+            left: 100%;
+        }
+
+        /* Typewriter Effect */
+        .typewriter {
+            overflow: hidden;
+            border-right: 0.15em solid;
+            white-space: nowrap;
+            animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+    </style>
+</head>
+<body class="dreamy-bg transition-all duration-500">
+    
+    <button id="themeToggle" class="fixed top-6 right-6 z-50 w-16 h-16 rounded-full bg-white dark:bg-gray-800 shadow-2xl flex items-center justify-center text-3xl hover:scale-110 transition-transform duration-300 wiggle">
+        <span id="themeIcon">🌙</span>
+    </button>
+
+    <div class="float-element" style="top: 10%; left: 5%; animation-delay: 0s;">
+        <div class="text-6xl opacity-30">🌸</div>
+    </div>
+    <div class="float-element" style="top: 20%; right: 10%; animation-delay: 1s;">
+        <div class="text-5xl opacity-30">💫</div>
+    </div>
+    <div class="float-element" style="top: 60%; left: 8%; animation-delay: 2s;">
+        <div class="text-7xl opacity-30">🦋</div>
+    </div>
+    <div class="float-element" style="top: 70%; right: 5%; animation-delay: 3s;">
+        <div class="text-6xl opacity-30">🌺</div>
+    </div>
+    <div class="float-element" style="top: 40%; right: 15%; animation-delay: 1.5s;">
+        <div class="text-5xl opacity-30">✨</div>
+    </div>
+
+    <section class="min-h-screen flex items-center justify-center relative px-4 py-20">
+        <div class="text-center max-w-4xl mx-auto relative z-10">
+            <div class="mb-8 bounce-in">
+                <div class="inline-block morphing-shape bg-gradient-to-br from-pink-300 to-purple-400 dark:from-pink-500 dark:to-purple-600 w-40 h-40 flex items-center justify-center text-7xl mb-6">
+                    💖
+                </div>
+            </div>
+            
+            <h1 class="text-8xl md:text-9xl font-bold text-white dark:text-pink-200 mb-6 bounce-in" style="animation-delay: 0.2s;">
+                Betty
+            </h1>
+            
+            <p class="text-3xl md:text-4xl handwriting text-white dark:text-pink-100 mb-4 bounce-in" style="animation-delay: 0.4s;">
+                My Beautiful Mama 💕
+            </p>
+            
+            <div class="max-w-2xl mx-auto bounce-in" style="animation-delay: 0.6s;">
+                <p class="text-xl text-white dark:text-pink-50 opacity-90">
+                    The love of my life, my best friend, my everything
+                </p>
+            </div>
+
+            <div class="mt-12 bounce-in" style="animation-delay: 0.8s;">
+                <button class="bg-white dark:bg-pink-900 text-pink-500 dark:text-pink-200 px-8 py-4 rounded-full text-xl font-semibold hover:scale-110 transition-transform shadow-2xl pulse-glow wiggle">
+                    Click for a surprise! ✨
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Love Story Section -->
+    <section class="py-24 px-4 relative">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-6xl md:text-7xl text-center text-white dark:text-pink-200 mb-16 rainbow-text font-bold">
+                Our Love Story
+            </h2>
+            
+            <div class="bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-3xl p-8 md:p-16 shadow-2xl love-message hover:shadow-pink-500/50 transition-all duration-300">
+                <div class="space-y-6 text-lg md:text-xl text-gray-800 dark:text-gray-200 leading-relaxed">
+                    <p class="first-letter:text-7xl first-letter:font-bold first-letter:text-pink-500 first-letter:mr-2 first-letter:float-left">
+                        From the moment I met you, I knew my life would never be the same. You've brought so much joy, 
+                        laughter, and love into my world. Every day with you is a blessing, and I'm grateful for every 
+                        moment we share together.
+                    </p>
+                    <p>
+                        You're not just my girlfriend, you're my best friend, my confidant, my partner in crime, and the 
+                        person I want to spend the rest of my life with. Thank you for being you, for loving me, and for 
+                        making every day brighter just by being in it.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-4 relative">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-6xl md:text-7xl handwriting text-white dark:text-pink-200 mb-4">
+                    Our Promise
+                </h2>
+                <div class="flex justify-center gap-4 text-5xl">
+                    <span class="wiggle">💍</span>
+                    <span class="wiggle" style="animation-delay: 0.1s;">✨</span>
+                    <span class="wiggle" style="animation-delay: 0.2s;">💕</span>
+                </div>
+            </div>
+            
+            <div class="flip-card h-[600px]">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front bg-white dark:bg-gray-900 p-8 md:p-12 shadow-2xl flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="text-7xl mb-6">💌</div>
+                            <h3 class="text-4xl handwriting text-pink-500 dark:text-pink-400 mb-4">
+                                Hover to reveal our promise
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-400">
+                                Click or tap on mobile
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flip-card-back bg-gradient-to-br from-pink-400 to-purple-500 p-8 md:p-12 shadow-2xl flex items-center justify-center">
+                        <div class="text-center text-white space-y-6">
+                            <h3 class="text-4xl handwriting font-bold">
+                                Certificate of Eternal Love
+                            </h3>
+                            <div class="h-px bg-white/50 w-3/4 mx-auto"></div>
+                            <p class="text-xl italic">This certifies that</p>
+                            <div class="text-5xl handwriting font-bold">
+                                Awani Caleb & Betty
+                            </div>
+                            <p class="text-lg max-w-md mx-auto">
+                                Have promised to love, cherish, and support each other through all of life's adventures.
+                            </p>
+                            <p class="text-2xl handwriting">
+                                Forever and always, united in love.
+                            </p>
+                            <div class="text-4xl">💖✨💍</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-6xl md:text-7xl text-center text-white dark:text-pink-200 mb-16 handwriting">
+                Why I Love You
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-3xl p-8 shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-300 shake">
+                    <div class="text-6xl mb-4 wiggle">😊</div>
+                    <h3 class="text-3xl handwriting text-pink-500 dark:text-pink-400 mb-3">
+                        Your Beautiful Smile
+                    </h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        Your smile lights up my entire world and makes everything better. It's the first thing I think about when I wake up.
+                    </p>
+                </div>
+
+                <div class="bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-3xl p-8 shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-300 shake">
+                    <div class="text-6xl mb-4 wiggle">💪</div>
+                    <h3 class="text-3xl handwriting text-pink-500 dark:text-pink-400 mb-3">
+                        Your Strength
+                    </h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        You inspire me every day with your determination and resilience. You face challenges with grace and courage.
+                    </p>
+                </div>
+
+                <div class="bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-3xl p-8 shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-300 shake">
+                    <div class="text-6xl mb-4 wiggle">❤️</div>
+                    <h3 class="text-3xl handwriting text-pink-500 dark:text-pink-400 mb-3">
+                        Your Kind Heart
+                    </h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        Your compassion and kindness towards everyone around you shows what an amazing person you are.
+                    </p>
+                </div>
+
+                <div class="bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-3xl p-8 shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-300 shake">
+                    <div class="text-6xl mb-4 wiggle">✨</div>
+                    <h3 class="text-3xl handwriting text-pink-500 dark:text-pink-400 mb-3">
+                        Your Uniqueness
+                    </h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        Everything about you is special - your quirks, your humor, your personality. You're one of a kind.
+                    </p>
+                </div>
+
+                <div class="bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-3xl p-8 shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-300 shake">
+                    <div class="text-6xl mb-4 wiggle">🌟</div>
+                    <h3 class="text-3xl handwriting text-pink-500 dark:text-pink-400 mb-3">
+                        Your Support
+                    </h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        You believe in me even when I don't believe in myself. Your support gives me strength to achieve anything.
+                    </p>
+                </div>
+
+                <div class="bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-3xl p-8 shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-300 shake">
+                    <div class="text-6xl mb-4 wiggle">💝</div>
+                    <h3 class="text-3xl handwriting text-pink-500 dark:text-pink-400 mb-3">
+                        Your Love
+                    </h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        The way you love me makes me feel like the luckiest person alive. Your love is my greatest treasure.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-6xl md:text-7xl text-center text-white dark:text-pink-200 mb-16 handwriting">
+                Our Journey Together
+            </h2>
+
+            <div class="space-y-12">
+                <div class="flex items-center gap-6 hover:scale-105 transition-transform">
+                    <div class="text-6xl wiggle">💕</div>
+                    <div class="bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-2xl p-6 flex-1 shadow-xl">
+                        <h3 class="text-2xl handwriting text-pink-500 dark:text-pink-400 mb-2">The Beginning</h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            The day we met and my life changed forever. I knew from that moment you were special.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-6 flex-row-reverse hover:scale-105 transition-transform">
+                    <div class="text-6xl wiggle">💖</div>
+                    <div class="bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-2xl p-6 flex-1 shadow-xl text-right">
+                        <h3 class="text-2xl handwriting text-pink-500 dark:text-pink-400 mb-2">First Date</h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Our first date where we talked for hours and time just flew by. I didn't want it to end.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-6 hover:scale-105 transition-transform">
+                    <div class="text-6xl wiggle">💗</div>
+                    <div class="bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-2xl p-6 flex-1 shadow-xl">
+                        <h3 class="text-2xl handwriting text-pink-500 dark:text-pink-400 mb-2">Becoming Official</h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            The day you said yes and made me the happiest person in the world. Best decision ever!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-6 flex-row-reverse hover:scale-105 transition-transform">
+                    <div class="text-6xl wiggle">💍</div>
+                    <div class="bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-2xl p-6 flex-1 shadow-xl text-right">
+                        <h3 class="text-2xl handwriting text-pink-500 dark:text-pink-400 mb-2">Our Wedding Certificate</h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            A playful promise of forever. A beautiful reminder that we're in this together, always.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-6 hover:scale-105 transition-transform">
+                    <div class="text-6xl wiggle">∞</div>
+                    <div class="bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-2xl p-6 flex-1 shadow-xl">
+                        <h3 class="text-2xl handwriting text-pink-500 dark:text-pink-400 mb-2">Forever</h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Every day forward, building our future together, creating memories, and loving each other more.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-6xl md:text-7xl text-center text-white dark:text-pink-200 mb-16 handwriting">
+                Our Memories
+            </h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="aspect-square bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-3xl flex items-center justify-center text-7xl hover:scale-110 hover:rotate-6 transition-all duration-300 shadow-xl wiggle">
+                    📷
+                </div>
+                <div class="aspect-square bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-3xl flex items-center justify-center text-7xl hover:scale-110 hover:rotate-6 transition-all duration-300 shadow-xl wiggle">
+                    📷
+                </div>
+                <div class="aspect-square bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-3xl flex items-center justify-center text-7xl hover:scale-110 hover:rotate-6 transition-all duration-300 shadow-xl wiggle">
+                    📷
+                </div>
+                <div class="aspect-square bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-3xl flex items-center justify-center text-7xl hover:scale-110 hover:rotate-6 transition-all duration-300 shadow-xl wiggle">
+                    📷
+                </div>
+                <div class="aspect-square bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-3xl flex items-center justify-center text-7xl hover:scale-110 hover:rotate-6 transition-all duration-300 shadow-xl wiggle">
+                    📷
+                </div>
+                <div class="aspect-square bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-3xl flex items-center justify-center text-7xl hover:scale-110 hover:rotate-6 transition-all duration-300 shadow-xl wiggle">
+                    📷
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 px-4 bg-white/50 dark:bg-gray-900/50 backdrop-blur-lg">
+        <div class="max-w-4xl mx-auto text-center space-y-4">
+            <p class="text-2xl handwriting text-gray-800 dark:text-gray-200">
+                Made with 💖 for the most amazing woman in the world
+            </p>
+            <p class="text-gray-600 dark:text-gray-400">
+                &copy; 2024 | Designed with love by 
+                <a href="https://github.com/awanicaleb" target="_blank" class="text-pink-500 dark:text-pink-400 font-semibold hover:underline">
+                    Awani Caleb
+                </a>
+            </p>
+            <p class="text-gray-500 dark:text-gray-500 text-sm handwriting">
+                To Betty, my everything 💕
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const html = document.documentElement;
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+
+        // Theme Toggle
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            html.classList.add('dark');
+            themeIcon.textContent = '☀️';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            themeIcon.textContent = isDark ? '☀️' : '🌙';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            
+            // Confetti on theme change
+            createConfetti();
+        });
+
+        // Heart Trail on Mouse Move
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() > 0.9) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-trail';
+                heart.textContent = ['💖', '💕', '💗', '💝', '✨'][Math.floor(Math.random() * 5)];
+                heart.style.left = e.pageX + 'px';
+                heart.style.top = e.pageY + 'px';
+                document.body.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 1000);
+            }
+        });
+
+        // Sparkle on Click
+        document.addEventListener('click', (e) => {
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const sparkle = document.createElement('div');
+                    sparkle.className = 'sparkle';
+                    sparkle.style.left = e.pageX + (Math.random() - 0.5) * 50 + 'px';
+                    sparkle.style.top = e.pageY + (Math.random() - 0.5) * 50 + 'px';
+                    document.body.appendChild(sparkle);
+                    
+                    setTimeout(() => sparkle.remove(), 1500);
+                }, i * 100);
+            }
+        });
+
+        // Confetti Function
+        function createConfetti() {
+            const colors = ['#ff0080', '#ff8c00', '#40e0d0', '#ff69b4', '#9370db'];
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.top = '-20px';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math.random() + 's';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 30);
+            }
+        }
+
+        // Surprise Button
+        document.querySelector('button.pulse-glow').addEventListener('click', function() {
+            createConfetti();
+            alert('You are the most beautiful, amazing, and wonderful person I\'ve ever met! I love you more than words can say! 💖✨');
+        });
+
+        // Mobile Flip Card Touch
+        const flipCard = document.querySelector('.flip-card');
+        let isFlipped = false;
+        flipCard.addEventListener('click', () => {
+            if (window.innerWidth < 768) {
+                isFlipped = !isFlipped;
+                flipCard.querySelector('.flip-card-inner').style.transform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0)';
+            }
+        });
+    </script>
+</body>
+</html>
