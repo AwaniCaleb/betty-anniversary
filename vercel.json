@@ -1,17 +1,24 @@
 {
-  "cleanUrls": true,
-  "rewrites": [
-    { 
-      "source": "/dreamy", 
-      "destination": "/concept-dreamy.html" 
+    "version": 2,
+    "name": "betty-anniversary",
+    "builds": [
+        { "src": "package.json", "use": "@vercel/static-build" },
+        { "src": "api/**/*.js", "use": "@vercel/node" }
+    ],
+    "env": {
+        "NODE_ENV": "production"
     },
-    { 
-      "source": "/elegant", 
-      "destination": "/minimalist-elegant.html" 
+    "functions": {
+        "api/**/*.js": {
+            "memory": 128,
+            "maxDuration": 10
+        }
     },
-    { 
-      "source": "/(.*)", 
-      "destination": "/index.html" 
-    }
-  ]
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "rewrites": [
+        { "source": "/(.*)", "destination": "/index.html" },
+        { "source": "/dreamy", "destination": "/concept-dreamy.html" },
+        { "source": "/elegant", "destination": "/minimalist-elegant.html" }
+    ]
 }
