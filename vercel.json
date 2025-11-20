@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "name": "betty-anniversary",
+    "routes": [
+        { "src": "/(.*)", "dest": "/index.html" },
+        { "src": "/dreamy", "dest": "/concept-dreamy.html" },
+        { "src": "/elegant", "dest": "/minimalist-elegant.html" }
+    ],
+    "env": {
+        "NODE_ENV": "production"
+    },
+    "cleanUrls": true,
+    "trailingSlash": false
+}
