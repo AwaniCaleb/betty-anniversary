@@ -2,17 +2,19 @@
     "version": 2,
     "name": "betty-anniversary",
     "builds": [
-        { "src": "package.json", "use": "@vercel/static-build" },
-        { "src": "api/**/*.js", "use": "@vercel/node" }
+        {
+            "src": "package.json",
+            "use": "@vercel/static-build"
+        }
     ],
     "rewrites": [
         {
             "source": "/dreamy",
-            "destination": "/dist/concept-dreamy.html"
+            "destination": "/concept-dreamy.html"
         },
         {
             "source": "/elegant",
-            "destination": "/dist/minimalist-elegant.html"
+            "destination": "/minimalist-elegant.html"
         },
         {
             "source": "/api/(.*)",
@@ -20,7 +22,7 @@
         },
         {
             "source": "/(.*)",
-            "destination": "/dist/$1"
+            "destination": "/index.html"
         }
     ],
     "env": {
