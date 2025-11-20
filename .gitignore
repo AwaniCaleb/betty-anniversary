@@ -1,0 +1,37 @@
+Dependency Directories
+
+/node_modules
+/jspm_packages
+
+Vite / Build Output
+
+/dist
+/build
+.vite/
+
+Vercel static output directory when using 'vercel build' for static sites
+
+.vercel/output
+
+Logs
+
+npm-debug.log*
+yarn-error.log*
+yarn-debug.log*
+lerna-debug.log*
+
+Environment
+
+.env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.DS_Store
+
+Editor/OS Files
+
+.vscode/
+.idea/
+Thumbs.db
