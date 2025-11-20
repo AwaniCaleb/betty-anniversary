@@ -8,12 +8,6 @@
     "env": {
         "NODE_ENV": "production"
     },
-    "functions": {
-        "api/**/*.js": {
-            "memory": 128,
-            "maxDuration": 10
-        }
-    },
     "cleanUrls": true,
     "trailingSlash": false,
     "rewrites": [
